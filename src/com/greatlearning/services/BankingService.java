@@ -74,6 +74,9 @@ public class BankingService {
 			} else {
 				System.out.println("Enter the correct account no.");
 			}
+			else{
+			    System.out.println("Enter the correct account no");
+			}
 		}
 
 	}
