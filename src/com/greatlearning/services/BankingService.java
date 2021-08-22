@@ -62,6 +62,9 @@ public class BankingService {
 				customer2.setBalance(customer2.getBalance() + amt);
 				System.out.println("The balance available for customer2 is: " + customer2.getBalance());
 			}
+			else{
+			    System.out.println("Enter the correct account no");
+			}
 		}
 
 	}
