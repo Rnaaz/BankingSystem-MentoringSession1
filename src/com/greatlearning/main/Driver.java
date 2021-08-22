@@ -45,7 +45,7 @@ public class Driver {
 					bankingService.deposit(loggedInCustomer);
 					break;
 				case 2:
-					bankingService.withdrawal(loggedInCustomer, "withdrawn");
+					bankingService.withdrawal(loggedInCustomer);
 					break;
 				case 3:
 					bankingService.transfer(loggedInCustomer, customer2);
@@ -56,7 +56,7 @@ public class Driver {
 			} while (option != 0);
 		} else {
 			System.out.println("Please enter valid credentials");
-		
+
 		}
 		in.close();
 	}

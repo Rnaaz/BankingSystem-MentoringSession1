@@ -7,13 +7,13 @@ public class BankingService {
 
 	Scanner sc = new Scanner(System.in);
 	int bankBalance = 1000;
-	int amt;
 
 	public void logout() {
 		System.out.println("------Thanking for banking with us---------");
 	}
 
 	public void deposit(Customer customer) {
+		int amt;
 		System.out.println("Enter the deposit amount");
 		amt = sc.nextInt();
 
@@ -27,12 +27,12 @@ public class BankingService {
 
 	}
 
-	public void withdrawal(Customer customer, String operation) {
+	public void withdrawal(Customer customer) {
 
-		System.out.println("Enter the amount " + operation);
-		amt = sc.nextInt();
+		System.out.println("Enter the amount to be withdrawn");
+		int amt = sc.nextInt();
 		if (customer.getBalance() >= amt) {
-			System.out.println("Amount " + operation + " successfully");
+			System.out.println("Amount withdrawn successfully");
 			customer.setBalance(customer.getBalance() - amt);
 			System.out.println("Remaining balance is: " + customer.getBalance());
 		} else {
@@ -42,6 +42,7 @@ public class BankingService {
 	}
 
 	public void transfer(Customer customer, Customer customer2) {
+		int amt;
 		int otp;
 		int otpGenerated;
 		int toBeTransferredAccountNo = customer2.getBankAccountNo();
@@ -57,10 +58,21 @@ public class BankingService {
 			System.out.println("Otp validation successful");
 			System.out.println("Enter the account no. to be transferred");
 			toBeTransferredAccountNo = sc.nextInt();
-			withdrawal(customer, "to transfer");
+			System.out.println("Enter the amount to be transferred");
+			amt = sc.nextInt();
+			if (customer.getBalance() >= amt) {
+				System.out.println("Amount transferred successfully");
+				customer.setBalance(customer.getBalance() - amt);
+				System.out.println("Remaining balance is: " + customer.getBalance());
+			} else {
+				System.out.println("Insufficient Balance. Please check your balance.");
+			}
+//			withdrawal(customer, "to transfer");
 			if (customer2.getBankAccountNo() == toBeTransferredAccountNo) {
 				customer2.setBalance(customer2.getBalance() + amt);
 				System.out.println("The balance available for customer2 is: " + customer2.getBalance());
+			} else {
+				System.out.println("Enter the correct account no.");
 			}
 		}
 
