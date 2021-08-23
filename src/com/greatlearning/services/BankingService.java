@@ -76,6 +76,9 @@ public class BankingService {
 			}
 		
 		}
+		else {
+			System.out.println("OTP validation failed. Please try again later.");
+		}
 
 	}
 
